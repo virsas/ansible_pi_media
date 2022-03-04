@@ -5,16 +5,18 @@
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
-<VirtualHost *:80>
-    ServerName {{ APACHE_PLEX_DOMAIN }}
-
-    ProxyPreserveHost On
-    ProxyPass / http://127.0.0.1:32400/
-    ProxyPassReverse / http://127.0.0.1:32400/
-
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-	CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+<IfModule proxy_module>
+	<VirtualHost *:80>
+	    ServerName {{ APACHE_PLEX_DOMAIN }}
+	
+	    ProxyPreserveHost On
+	    ProxyPass / http://127.0.0.1:32400/
+	    ProxyPassReverse / http://127.0.0.1:32400/
+	
+	    ErrorLog ${APACHE_LOG_DIR}/error.log
+		CustomLog ${APACHE_LOG_DIR}/access.log combined
+	</VirtualHost>
+</IfModule>
 
 <VirtualHost *:80>
     ServerName {{ APACHE_ARIA_DOMAIN }}
