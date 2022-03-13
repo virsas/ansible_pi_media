@@ -1,4 +1,4 @@
-# ansirole_pi_media
+# ansible_pi_media
 
 ## Role installation
 
@@ -16,10 +16,10 @@ touch requirements/pi_media.yml
 ---
 
 # ansible-galaxy install -p vss_galaxy_roles --force -r requirements/pi_media.yml
-- src: "https://github.com/virsas/ansirole_pi_media"
+- src: "https://github.com/virsas/ansible_pi_media"
   scm: git
   version: v1.0
-  name: ansirole_pi_media
+  name: ansible_pi_media
   path: vss_galaxy_roles
 ```
 
@@ -42,8 +42,8 @@ If you are using git for your playbooks and sites configuration, add vss_galaxy_
 ``` bash
 $ cd vss_galaxy_roles
 $ ls
-ansirole_pi_media
-$ cd ansirole_pi_media
+ansible_pi_media
+$ cd ansible_pi_media
 $ ls -1
 medias
 handlers
@@ -79,7 +79,7 @@ host_key_checking=False
   remote_user: pi
   become: yes
   roles:
-    - ansirole_pi_media
+    - ansible_pi_media
 ```
 
 ### Inventory (./sites/NAME/inventory)
